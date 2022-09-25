@@ -1,9 +1,9 @@
-let str='034*2**2';
+let str='Math.sin(45)'
 console.log('eval(str) :>> ', eval(str));
 let btn=document.getElementsByClassName('btn');
 let input=document.getElementById('input');
 Array.from(btn).forEach(element => {
-    if(element.id!='deleteBtn'&&element.id!='clear'&&element.id!='calculate'&&element.id!='square'&&element.id!='sqrt'&&element.id!='pie'){
+    if(element.id!='deleteBtn'&&element.id!='clear'&&element.id!='calculate'&&element.id!='square'&&element.id!='sqrt'&&element.id!='pie'&&element.id!='sin'&&element.id!='cos'&&element.id!='tan'&&element.id!='log'){
         console.log('element',element);
         element.addEventListener('click',()=>{
             console.log(Array.from(element.classList));
@@ -38,6 +38,10 @@ calculate.addEventListener('click',()=>{
 
     try {
         input.value=input.value.replace(/\^/g,'**')
+        input.value=input.value.replace(/sin/g,'Math.sin')
+        input.value=input.value.replace(/cos/g,'Math.cos')
+        input.value=input.value.replace(/tan/g,'Math.tan')
+        input.value=input.value.replace(/log/g,'Math.log2')
         input.value=input.value.replace(/3.14/g,'(3.14)')
         input.value=input.value.replace(/%/g,'*(1/100)')
 
@@ -84,5 +88,45 @@ pie.addEventListener('click',()=>{
         input.value=3.14;
     } else {
         input.value+=3.14;
+    }
+})
+
+//CODE FOE SIN
+let sin=document.getElementById('sin');
+sin.addEventListener('click',()=>{
+    if (input.value==0) {
+        input.value='sin(';
+    } else {
+        input.value+='sin(';
+    }
+})
+
+//CODE FOE SIN
+let cos=document.getElementById('cos');
+cos.addEventListener('click',()=>{
+    if (input.value==0) {
+        input.value='cos(';
+    } else {
+        input.value+='cos(';
+    }
+})
+
+//CODE FOE SIN
+let tan=document.getElementById('tan');
+tan.addEventListener('click',()=>{
+    if (input.value==0) {
+        input.value='tan(';
+    } else {
+        input.value+='tan(';
+    }
+})
+
+//CODE FOE LOG
+let log=document.getElementById('log');
+log.addEventListener('click',()=>{
+    if (input.value==0) {
+        input.value='log(';
+    } else {
+        input.value+='log(';
     }
 })
